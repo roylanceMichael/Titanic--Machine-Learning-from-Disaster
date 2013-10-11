@@ -14,6 +14,7 @@ header = csv_file_object.next() #Skip the fist line as it is a header
 train_data=[] #Creat a variable called 'train_data'
 for row in csv_file_object: #Skip through each row in the csv file
     train_data.append(row[1:]) #adding each row to the data variable
+    print row[1:]
 train_data = np.array(train_data) #Then convert from a list to an array
 
 #I need to convert all strings to integer classifiers:
