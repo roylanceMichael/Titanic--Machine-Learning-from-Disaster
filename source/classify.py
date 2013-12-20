@@ -1,10 +1,12 @@
 from sklearn.ensemble import RandomForestClassifier
+import numpy as np
 
 class Classify:
 	def __init__(self):
 		self.forest = RandomForestClassifier(n_estimators=100)
 
 	def train(self, train_data):
+
 		X = train_data[0::, 1::]
 		y = train_data[0::, 0]
 
@@ -16,9 +18,10 @@ class Classify:
 
 		output = self.forest.predict(actualData)
 
-		returnArray = ['PassengerId', 'Survived']
+		returnArray = [ ['PassengerId', 'Survived'] ]
 
 		for i in range(0, len(output)):
-			subArray = [ ids[i], output[i] ]
+			returnArray.append([ ids[i], output[i] ])
+
 
 		return returnArray

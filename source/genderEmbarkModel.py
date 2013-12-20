@@ -40,14 +40,12 @@ class CreateModel(createModelBase.CreateModelBase):
 		#All the ages with no data make the median of the data
 		test_array[test_array[0::,4] == '',4] = np.median(test_array[test_array[0::,4]\
 		                                           != '',4].astype(np.float))
-		#All missing ebmbarks just make them embark from most common place
+		#All missing embarks just make them embark from most common place
 		test_array[test_array[0::,10] == '',10] = np.round(np.mean(test_array[test_array[0::,10]\
 		                                                   != '',10].astype(np.float)))
 
 		for i in xrange(np.size(test_array[0::,0])):
-		    if test_array[i,7] == '':
-		    	test_data[i,7] = np.median(test_data[(test_data[0::,7] != '') &\
-                                             (test_data[0::,0] == test_data[i,0])\
-            ,7].astype(np.float))
+		    if test_array[i,8] == '':
+		    	test_array[i,8] = 0
 
 		return np.delete(test_array,[2,7,9],1) #remove the name data, cabin and ticket
