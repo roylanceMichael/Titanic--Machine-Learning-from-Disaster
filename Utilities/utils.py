@@ -3,7 +3,7 @@ import csv as csv
 import re
 import os
 
-class Util:
+class Utils:
 	def createArrayFromCsvFile(self, csvFile):
 		csv_file_object = csv.reader(open(csvFile, 'rb'))
 
