@@ -19,13 +19,33 @@ class CreateModel(createModelBase.CreateModelBase):
 
 			# Mr. Master. defaulting to 0
 			# Miss. Mrs. defaulting to 1
-
-			if re.match('mr\.', nameCell) or re.match('master', nameCell):
+			if re.match('mr\.', nameCell) and row[2] == 1: 
 				row[3] = 0
-			elif re.match('miss', nameCell) or re.match('mrs\.', nameCell):
+			elif re.match('master', nameCell) and row[2] == 1:
 				row[3] = 1
-			else:
+			elif re.match('miss', nameCell) and row[2] == 1:
 				row[3] = 2
+			elif re.match('mrs\.', nameCell) and row[2] == 1:
+				row[3] = 3
+			if re.match('mr\.', nameCell) and row[2] == 2: 
+				row[3] = 4
+			elif re.match('master', nameCell) and row[2] == 2:
+				row[3] = 5
+			elif re.match('miss', nameCell) and row[2] == 2:
+				row[3] = 6
+			elif re.match('mrs\.', nameCell) and row[2] == 2:
+				row[3] = 7
+			if re.match('mr\.', nameCell) and row[2] == 3: 
+				row[3] = 8
+			elif re.match('master', nameCell) and row[2] == 3:
+				row[3] = 9
+			elif re.match('miss', nameCell) and row[2] == 3:
+				row[3] = 10
+			elif re.match('mrs\.', nameCell) and row[2] == 3:
+				row[3] = 11
+			else:
+				row[3] = 12
+
 
 		#I need to fill in the gaps of the data and make it complete.
 		#So where there is no price, I will assume price on median of that class
@@ -53,16 +73,36 @@ class CreateModel(createModelBase.CreateModelBase):
 
 		for row in test_array:
 			nameCell = row[3].lower()
-
+			#row[2] = int(row[2])
 			# Mr. Master. defaulting to 0
 			# Miss. Mrs. defaulting to 1
 
-			if re.match('mr\.', nameCell) or re.match('master', nameCell):
+			if re.match('mr\.', nameCell) and row[1] == 1: 
 				row[2] = 0
-			elif re.match('miss', nameCell) or re.match('mrs\.', nameCell):
+			elif re.match('master', nameCell) and row[1] == 1:
 				row[2] = 1
-			else:
+			elif re.match('miss', nameCell) and row[1] == 1:
 				row[2] = 2
+			elif re.match('mrs\.', nameCell) and row[1] == 1:
+				row[2] = 3
+			if re.match('mr\.', nameCell) and row[1] == 2: 
+				row[2] = 4
+			elif re.match('master', nameCell) and row[1] == 2:
+				row[2] = 5
+			elif re.match('miss', nameCell) and row[1] == 2:
+				row[2] = 6
+			elif re.match('mrs\.', nameCell) and row[1] == 2:
+				row[2] = 7
+			if re.match('mr\.', nameCell) and row[1] == 3: 
+				row[2] = 8
+			elif re.match('master', nameCell) and row[1] == 3:
+				row[2] = 9
+			elif re.match('miss', nameCell) and row[1] == 3:
+				row[2] = 10
+			elif re.match('mrs\.', nameCell) and row[1] == 3:
+				row[2] = 11
+			else:
+				row[2] = 12
 
 		#All the ages with no data make the median of the data
 		test_array[test_array[0::,4] == '',4] = np.median(test_array[test_array[0::,4]\
